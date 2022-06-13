@@ -22,7 +22,6 @@ const Query = require("./resolvers/Query");
 //     },
 //   ],
 // };
-console.log(Query);
 
 const typeDefs = `
   type Query {

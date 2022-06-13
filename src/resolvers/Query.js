@@ -1,23 +1,10 @@
-function movies(parent, args) {
-  return {
-    page: 1,
-    totalResults: 10,
-    totalPages: 10,
-    results: [
-      {
-        id: "1",
-        title: "movie title",
-        releaseDate: "release date",
-        posterPath: "https://www.themoviedb.org/tv/92830-obi-wan-kenobi#",
-        genres: [
-          {
-            id: 1,
-            name: "Drama",
-          },
-        ],
-      },
-    ],
-  };
+const { getPopular } = require("../modules/movies");
+
+async function movies(parent, args) {
+  // console.log("hello before getPopular");
+  const data = await getPopular();
+  // console.log("data after getPupular: ", data);
+  return data;
 }
 
 module.exports = {
