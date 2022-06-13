@@ -14,7 +14,7 @@ type Movie {
   title: String!
   originalTitle: String!
   originalLanguage: String!
-  releaseDate: String!
+  releaseDate(format: String): String!
   posterPath: String
   genres: [Int]
   adult: Boolean

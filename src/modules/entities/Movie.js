@@ -1,14 +1,13 @@
 const { IMAGE_BASE_PATH } = require("../../config");
-const { changeFormat } = require("../../utils");
+const { format } = require("date-fns");
 
 class Movie {
   constructor(movie) {
+    this.movie = movie;
     this.id = movie.id;
     this.title = movie.title;
     this.originalTitle = movie.original_title;
     this.originalLanguage = movie.original_language;
-    this.releaseDate = movie.release_date;
-    // this.releaseDate = changeFormat(movie.release_date);
     this.posterPath = `${IMAGE_BASE_PATH}${movie.poster_path}`;
     this.genres = movie.genre_ids;
     this.adult = movie.adult;
@@ -18,6 +17,12 @@ class Movie {
     this.voteCount = movie.vote_count;
     this.video = movie.video;
     this.voteAverage = movie.vote_average;
+  }
+
+  releaseDate(params) {
+    return params.format
+      ? format(new Date(this.movie.release_date), params.format)
+      : this.movie.release_date;
   }
 }
 
