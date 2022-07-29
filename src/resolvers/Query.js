@@ -10,7 +10,6 @@ async function moviesByIds(parent, { ids }) {
   const requests = ids.map((id) => getDetails(id));
   const data = await Promise.all(requests);
   const movies = data.map(({ data }) => new Movie(data));
-
   return movies;
 }
 

@@ -27,8 +27,3 @@ type Movie {
   voteAverage: Float
   runtime: Int
 }
-
-type Genre {
-  id: Int!
-  name: String!
-}
