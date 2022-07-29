@@ -9,7 +9,7 @@ class Movie {
     this.originalTitle = movie.original_title;
     this.originalLanguage = movie.original_language;
     this.posterPath = `${IMAGE_BASE_PATH}${movie.poster_path}`;
-    this.genres = movie.genres.map((genre) => genre.name);
+    this.genres = movie.genres?.map((genre) => genre.name);
     this.adult = movie.adult;
     this.overview = movie.overview;
     this.backdropPath = `${IMAGE_BASE_PATH}${movie.backdrop_path}`;
