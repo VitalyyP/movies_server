@@ -9,8 +9,8 @@ const resolvers = {
 };
 
 const context = ({ req, res }) => ({
-  // locale: req?.headers?.locale || "en-US",
-  locale: req?.headers?.locale || "uk",
+  locale: req?.headers?.language || "en-US",
+  // locale: localStorage.getItem("locale") || "en-US",
 });
 
 const server = new ApolloServer({
