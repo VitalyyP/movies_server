@@ -9,14 +9,15 @@ const resolvers = {
 };
 
 const context = ({ req, res }) => ({
-  locale: req?.headers?.language || "en-US",
+  locale: req?.headers?.locale || "en-US",
   // locale: localStorage.getItem("locale") || "en-US",
 });
+console.log("context in index.js: ", context);
 
 const server = new ApolloServer({
   typeDefs: fs.readFileSync(path.join(__dirname, "schema.graphql"), "utf8"),
   resolvers,
-  context, //
+  context,
 });
 
 server.listen().then(({ url }) => console.log(`Server is running on ${url}`));
