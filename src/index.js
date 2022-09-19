@@ -10,9 +10,7 @@ const resolvers = {
 
 const context = ({ req, res }) => ({
   locale: req?.headers?.locale || "en-US",
-  // locale: localStorage.getItem("locale") || "en-US",
 });
-console.log("context in index.js: ", context);
 
 const server = new ApolloServer({
   typeDefs: fs.readFileSync(path.join(__dirname, "schema.graphql"), "utf8"),
